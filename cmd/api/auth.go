@@ -8,7 +8,7 @@ import (
 )
 
 type Auth struct {
-	Issue         string
+	Issuer        string
 	Audience      string
 	Secret        string
 	TokenExpiry   time.Duration
@@ -42,7 +42,7 @@ func (j *Auth) GenerateTokenPair(user *jwtUser) (TokenPairs, error) {
 	claims["name"] = fmt.Sprintf("%s %s", user.FirstName, user.LastName)
 	claims["sub"] = fmt.Sprint(user.ID)
 	claims["aud"] = j.Audience
-	claims["iss"] = j.Issue
+	claims["iss"] = j.Issuer
 	claims["iat"] = time.Now().UTC().Unix()
 	claims["typ"] = "JWT"
 
