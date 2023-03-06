@@ -13,4 +13,6 @@ type DatabseRepo interface {
 
 	OneMovie(id int) (*models.Movie, error)
 	OneMovieForEdit(id int) (*models.Movie, []*models.Genre, error)
+
+	AllGenres() ([]*models.Genre, error)
 }
