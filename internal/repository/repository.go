@@ -17,4 +17,5 @@ type DatabseRepo interface {
 	AllGenres() ([]*models.Genre, error)
 
 	InsertMovie(movie models.Movie) (int, error)
+	UpdateMovieGenres(id int, genresIDs []int) error
 }
